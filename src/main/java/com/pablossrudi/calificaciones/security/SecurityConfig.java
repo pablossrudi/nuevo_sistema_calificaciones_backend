@@ -61,12 +61,21 @@ public class SecurityConfig {
                         .requestMatchers("/hash-password").permitAll()
                         .requestMatchers("/api/users/{userId}").hasAuthority("ROLE_ADMIN")
                         .requestMatchers("/api/users").hasAnyAuthority("ROLE_ADMIN", "ROLE_CLIENT")
+
                         .requestMatchers(HttpMethod.POST,"/api/alumnos").hasAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/alumnos").hasAnyAuthority("ROLE_ADMIN", "ROLE_CLIENT")
-                        .requestMatchers("/api/alumnos/{id}").hasAnyAuthority("ROLE_ADMIN", "ROLE_CLIENT")
+                        .requestMatchers(HttpMethod.GET,"/api/alumnos/{id}").hasAnyAuthority("ROLE_ADMIN", "ROLE_CLIENT")
+                        .requestMatchers(HttpMethod.PUT,"/api/alumnos/{id}").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/api/alumnos/{id}").hasAuthority("ROLE_ADMIN")
+
                         .requestMatchers(HttpMethod.POST,"/api/materias").hasAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.GET,"/api/materias").hasAnyAuthority("ROLE_ADMIN", "ROLE_CLIENT")
-                        .requestMatchers("/api/materias/{id}").hasAnyAuthority("ROLE_ADMIN", "ROLE_CLIENT")
+                        .requestMatchers(HttpMethod.GET,"/api/materias/{id}").hasAnyAuthority("ROLE_ADMIN", "ROLE_CLIENT")
+                        .requestMatchers(HttpMethod.PUT,"/api/materias/{id}").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/api/materias/{id}").hasAuthority("ROLE_ADMIN")
+
+                        .requestMatchers(HttpMethod.POST,"/api/alumnoMateria").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers("/api/alumnoMateria/{id}").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

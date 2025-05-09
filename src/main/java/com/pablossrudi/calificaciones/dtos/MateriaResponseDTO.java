@@ -3,7 +3,6 @@ package com.pablossrudi.calificaciones.dtos;
 import lombok.Builder;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Data
@@ -11,5 +10,12 @@ import java.util.List;
 public class MateriaResponseDTO {
     private String materiaId;
     private String materiaNombre;
-//    private List<BigDecimal> notas;
+    private List<AlumnoDTO> alumnos;
+
+    @Data
+    @Builder
+    public static class AlumnoDTO {
+        private String alumnoId;
+        private String alumnoNombre;
+    }
 }
