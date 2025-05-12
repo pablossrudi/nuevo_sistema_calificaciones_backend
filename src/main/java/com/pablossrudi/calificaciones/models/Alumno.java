@@ -25,8 +25,17 @@ public class Alumno {
     private String alumnoNombre;
     @Column(name = "alumno_direccion", nullable = false, length = 200)
     private String alumnoDireccion;
+    @Column(name = "estado", columnDefinition = "BOOLEAN DEFAULT true")
+    private Boolean estado;
 
     @OneToMany(mappedBy = "alumnoId")
     @ToString.Exclude
     private Set<AlumnoMateria> materias;
+
+//    @PrePersist
+//    protected void onCreate() {
+//        if (estado == null) {
+//            estado = true;
+//        }
+//    }
 }

@@ -12,6 +12,7 @@ public class AlumnoResponseDTO {
     private String alumnoNombre;
     private String alumnoRut;
     private String alumnoDireccion;
+    private Boolean estado;
     private List<AlumnoMateriaNotasResponseDTO> materias;
 
 }

@@ -45,6 +45,7 @@ public class AlumnoMapper {
                 .alumnoNombre(alumno.getAlumnoNombre())
                 .alumnoRut(alumno.getAlumnoRut())
                 .alumnoDireccion(alumno.getAlumnoDireccion())
+                .estado(alumno.getEstado())
                 .materias(materiasDto)
                 .build();
     }
