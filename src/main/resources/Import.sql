@@ -22,6 +22,15 @@ INSERT INTO materias (materia_id, materia_nombre) VALUES ('d051a390-6e6c-4b57-83
 INSERT INTO materias (materia_id, materia_nombre) VALUES ('c322fb42-52e6-476d-b16d-4cfeefa3b5e5','Arte');
 INSERT INTO materias (materia_id, materia_nombre) VALUES ('62b17952-ec28-4a9d-949d-1aa5fcaf7d03','Musica');
 
+-- Insertar materias a alumnos
+INSERT INTO alumnos_materias (alumno_materia_id, alumno_id, materia_id, nota) values ('109e5b0e-94fa-4214-8f35-4f8af670b1cc','34ce8218-bab0-4857-b740-7a6815be8d44','88000002-ab7c-4c1a-86f0-73635afa351b', 4.4);
+INSERT INTO alumnos_materias (alumno_materia_id, alumno_id, materia_id, nota) values ('7689cb7a-da42-4b94-8eeb-08a888854e10','34ce8218-bab0-4857-b740-7a6815be8d44','88000002-ab7c-4c1a-86f0-73635afa351b', 5);
+INSERT INTO alumnos_materias (alumno_materia_id, alumno_id, materia_id, nota) values ('1f0df344-1ac0-4138-b5b3-c46477bd5bb5','34ce8218-bab0-4857-b740-7a6815be8d44','7f025a6c-b689-47be-9d3f-ee3636d09ae0', 5.5);
+INSERT INTO alumnos_materias (alumno_materia_id, alumno_id, materia_id, nota) values ('f1dd3600-9f63-4f30-9a63-4927b5be5367','34ce8218-bab0-4857-b740-7a6815be8d44','5bf949ea-a733-42e8-b5b0-74cb24d81fac', 7);
+INSERT INTO alumnos_materias (alumno_materia_id, alumno_id, materia_id, nota) values ('383ae4ea-7f1f-471f-bd14-3009ffe0db2a','6d8cb608-2ba0-4bc1-a435-8aad316321f3','88000002-ab7c-4c1a-86f0-73635afa351b', 6.3);
+INSERT INTO alumnos_materias (alumno_materia_id, alumno_id, materia_id, nota) values ('a274976c-9bc1-40e3-9b21-b50decdc5a51','6d8cb608-2ba0-4bc1-a435-8aad316321f3','f3127428-ce3f-4749-8f41-580bf6df5968',5.8);
+
+
 -- Insert roles
 INSERT INTO roles (role_id, name) VALUES ('84f473e7-ba0c-4309-9aa4-801c65d5c1ba','ROLE_ADMIN');
 INSERT INTO roles (role_id, name) VALUES ('b60e9cb2-c2a2-4496-b2b3-1f056b4e8cb8','ROLE_CLIENT');
