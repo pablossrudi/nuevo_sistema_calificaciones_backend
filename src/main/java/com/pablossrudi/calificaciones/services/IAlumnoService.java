@@ -13,4 +13,5 @@ public interface IAlumnoService {
     void saveAlumno(AlumnoRequestDTO alumno);
     AlumnoResponseDTO updateAlumno(String id, AlumnoRequestDTO alumnoRequestDTO);
     boolean deleteAlumno(String id);
+    AlumnoResponseDTO findAlumnoByRut(String rut);
 }

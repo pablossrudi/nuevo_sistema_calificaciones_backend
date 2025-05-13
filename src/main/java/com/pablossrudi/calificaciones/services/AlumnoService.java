@@ -57,4 +57,9 @@ public class AlumnoService implements IAlumnoService{
         alumnoRepository.deleteById(id);
         return true;
     }
+
+    @Override
+    public AlumnoResponseDTO findAlumnoByRut(String rut) {
+        return alumnoMapper.toDTO(alumnoRepository.findAlumnosByRut(rut));
+    }
 }

@@ -60,6 +60,15 @@ public class AlumnoController {
         return ResponseEntity.ok(alumno);
     }
 
+    @GetMapping("/rut/{rut}")
+    public ResponseEntity<AlumnoResponseDTO> getAlumnoByRut(@PathVariable String rut){
+        AlumnoResponseDTO alumno = alumnoService.findAlumnoByRut(rut);
+        if(alumno == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return ResponseEntity.ok(alumno);
+    }
+
     @PutMapping("/delete/{id}")
     @Transactional
     public ResponseEntity<Boolean> deleteAlumno(@PathVariable String id) {

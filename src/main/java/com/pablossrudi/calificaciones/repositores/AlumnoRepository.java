@@ -13,6 +13,9 @@ public interface AlumnoRepository extends JpaRepository<Alumno, String> {
     @Query("SELECT al FROM Alumno al WHERE al.alumnoId = :id")
     Alumno findAlumnosById(@Param("id") String id);
 
-    @Query("SELECT al FROM Alumno al ORDER BY al.alumnoId ASC")
+    @Query("SELECT al FROM Alumno al ORDER BY al.alumnoRut ASC")
     Page<Alumno> findAllAlumnos(Pageable pageable);
+
+    @Query("SELECT al FROM Alumno al WHERE al.alumnoRut = :rut")
+    Alumno findAlumnosByRut(@Param("rut") String rut);
 }
