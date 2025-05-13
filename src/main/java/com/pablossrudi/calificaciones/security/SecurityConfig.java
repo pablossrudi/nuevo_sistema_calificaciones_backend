@@ -78,7 +78,9 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE,"/api/materias/{id}").hasAuthority("ROLE_ADMIN")
 
                         .requestMatchers(HttpMethod.POST,"/api/alumnoMateria").hasAuthority("ROLE_ADMIN")
-                        .requestMatchers("/api/alumnoMateria/{id}").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.GET,"/api/alumnoMateria/{id}").hasAnyAuthority("ROLE_ADMIN", "ROLE_CLIENT")
+                        .requestMatchers(HttpMethod.PUT,"/api/alumnoMateria/{id}").hasAuthority("ROLE_ADMIN")
+                        .requestMatchers(HttpMethod.DELETE,"/api/alumnoMateria/{id}").hasAuthority("ROLE_ADMIN")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
