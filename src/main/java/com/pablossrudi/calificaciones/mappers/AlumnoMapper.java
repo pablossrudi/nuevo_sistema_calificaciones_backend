@@ -55,8 +55,18 @@ public class AlumnoMapper {
         alumno.setAlumnoNombre(dto.getAlumnoNombre());
         alumno.setAlumnoRut(dto.getAlumnoRut());
         alumno.setAlumnoDireccion(dto.getAlumnoDireccion());
+        alumno.setEstado(dto.getEstado());
 
         return alumno;
+    }
+
+    public AlumnoRequestDTO toEntityRequest(AlumnoResponseDTO dto) {
+        return AlumnoRequestDTO.builder()
+                .alumnoNombre(dto.getAlumnoNombre())
+                .alumnoRut(dto.getAlumnoRut())
+                .alumnoDireccion(dto.getAlumnoDireccion())
+                .estado(dto.getEstado())
+                .build();
     }
 
     public Page<AlumnoResponseDTO> toPage(Page<Alumno> dtoPage) {

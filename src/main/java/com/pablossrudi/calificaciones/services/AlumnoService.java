@@ -43,6 +43,7 @@ public class AlumnoService implements IAlumnoService{
         alumnosById.setAlumnoNombre(alumno.getAlumnoNombre());
         alumnosById.setAlumnoRut(alumno.getAlumnoRut());
         alumnosById.setAlumnoDireccion(alumno.getAlumnoDireccion());
+        alumnosById.setEstado(alumno.getEstado());
 
         alumnoRepository.save(alumnosById);
         return alumnoMapper.toDTO(alumnosById);

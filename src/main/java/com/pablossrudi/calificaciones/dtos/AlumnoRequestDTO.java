@@ -9,4 +9,5 @@ public class AlumnoRequestDTO {
     private String alumnoNombre;
     private String alumnoRut;
     private String alumnoDireccion;
+    private Boolean estado;
 }
