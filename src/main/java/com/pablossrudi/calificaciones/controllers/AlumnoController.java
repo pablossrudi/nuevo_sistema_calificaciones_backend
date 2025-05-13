@@ -2,6 +2,7 @@ package com.pablossrudi.calificaciones.controllers;
 
 import com.pablossrudi.calificaciones.dtos.AlumnoRequestDTO;
 import com.pablossrudi.calificaciones.dtos.AlumnoResponseDTO;
+import com.pablossrudi.calificaciones.mappers.AlumnoMapper;
 import com.pablossrudi.calificaciones.services.IAlumnoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class AlumnoController {
     private final IAlumnoService alumnoService;
+    private final AlumnoMapper alumnoMapper;
 
     @GetMapping("/{id}")
     public ResponseEntity<AlumnoResponseDTO> getAlumno(@PathVariable String id){
@@ -58,14 +60,18 @@ public class AlumnoController {
         return ResponseEntity.ok(alumno);
     }
 
-    @DeleteMapping("/{id}")
+    @PutMapping("/delete/{id}")
     @Transactional
-    public ResponseEntity<Void> deleteAlumno(@PathVariable String id) {
-        boolean deleted = alumnoService.deleteAlumno(id);
-        if(!deleted){
+    public ResponseEntity<Boolean> deleteAlumno(@PathVariable String id) {
+        AlumnoResponseDTO alumnoResponseDTO = alumnoService.findAlumnoById(id);
+        alumnoResponseDTO.setEstado(false);
+
+        AlumnoResponseDTO alumno = alumnoService.updateAlumno(id,alumnoMapper.toEntityRequest(alumnoResponseDTO));
+
+        if(alumno == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(true);
     }
 
     private Map<String, Object> createPaginationResponse(Page<?> page) {
